@@ -1,3 +1,4 @@
+
 /**
  * Description: This program creates a utility called "countnames" that reads
  * names from a file or from standard input, one name per line. It counts how
@@ -12,25 +13,6 @@
  * Last modified date: 2/12/2026
  * Creation date: 2/12/2026
  **/
-
-# Assignment 1: Count Names
-
-## Instructions
-
-Please review the following code snippet. It is located in the file `/countnames/src/countnames.c`. You can copy and paste it into your local file or use it as a reference.
-
-```c
-// filepath: /countnames/src/countnames.c
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-int main()
-{
-    printf("Hello, World!");
-    return 0;
-}
-```
 
 ## Lessons Learned
 

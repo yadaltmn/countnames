@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_NAMES 100
-#define MAX_NAME_LENGTH 20
+#define MAX_NAMES 100 // 100 distinct names
+#define MAX_NAME_LENGTH 31
 #define Line_BUFFER_SIZE 256
 
 
@@ -13,38 +13,57 @@ int main(int argc, char *argv[])
 {
     /*This will be able to open names.txt and read the 
     names in it, but it doesn't do anything with them yet.*/
-    FILE *fp = fopen("namesB.txt", "r");
+    FILE *fp = NULL;
     //This is setup if the file name can not be opened
-    if (fp == NULL)
+    if (argc == 2)
     {
-        fprintf(stderr, "Could not open file namesB.txt\n");
-        return 1;
+        fp = fopen(argv[1], "r");
+        if (fp == NULL)
+        {
+            return 1;
+        }
     }
-    NameCount table[MAX_NAMES];
+    else if (argc == 1)
+    {
+        fp = stdin;
+    }
+    else
+    {
+        return 0;
+    }
+    
+    char names[MAX_NAMES][MAX_NAME_LENGTH];
+    int counts[MAX_NAMES];
     int lengthCOunt = 0;
 
     for (int i = 0; i < MAX_NAMES; i++)
     {
-        table[i].count = 0;
-        table[i].name[0] = '\0';
+        counts[i] = 0;
+        names[i][0] = '\0';
     }
 
     char buffer[Line_BUFFER_SIZE];
-    int lineNumber = 0;
+    int lineNum = 0;
 
     while (fgets(buffer, Line_BUFFER_SIZE, fp) != NULL)
     {
-        lineNumber++;
+        lineNum++;
         // Remove newline character if present
         buffer[strcspn(buffer, "\n")] = '\0';
+
+        if (strlen(buffer) == 0)
+        {
+            fprintf(stderr, "Warning: Line %d is empty.\n", lineNum);
+            continue;
+        }
 
         // Check if the name is already in the table
         int found = 0;
         for (int i = 0; i < lengthCOunt; i++)
         {
-            if (strcmp(table[i].name, buffer) == 0)
+            if (strcmp(names[i], buffer) == 0)
             {
-                table[i].count++;
+                counts[i]++;
                 found = 1;
                 break;
             }
@@ -53,19 +72,22 @@ int main(int argc, char *argv[])
         // If not found, add it to the table
         if (!found && lengthCOunt < MAX_NAMES)
         {
-            strncpy(table[lengthCOunt].name, buffer, MAX_NAME_LENGTH - 1);
-            table[lengthCOunt].name[MAX_NAME_LENGTH - 1] = '\0'; // Ensure null-termination
-            table[lengthCOunt].count = 1;
+            strncpy(names[lengthCOunt], buffer, MAX_NAME_LENGTH - 1);
+            names[lengthCOunt][MAX_NAME_LENGTH - 1] = '\0'; // Ensure null-termination
+            counts[lengthCOunt] = 1;
             lengthCOunt++;
         }
     }
     // Close the file after reading
-    fclose(fp);
+    if (fp != stdin)
+    {
+        fclose(fp);
+    }
 
     //print the name counts
     for (int i = 0; i < lengthCOunt; i++)
     {
-        printf("%s: %d\n", table[i].name, table[i].count);
+        printf("%s: %d\n", names[i], counts[i]);
     }
 
     return 0;

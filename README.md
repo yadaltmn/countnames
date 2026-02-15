@@ -10,7 +10,7 @@
  * Author emails: 
  * jada-lien.nguyen@sjsu.edu 
  * jesse.mendoza@sjsu.edu 
- * Last modified date: 2/12/2026
+ * Last modified date: 2/15/2026
  * Creation date: 2/12/2026
  **/
 
@@ -450,7 +450,7 @@ JORGE PEREZ: 1
 JESSE MENDOZA: 1
 MENDOZA JESSE: 1
 
-## Sitation / edge case:
+## Situations / Edge Cases:
 
 names.txt - Tests empty lines + duplicates + names with space
 names1.txt - Tests empty line + 1 repeated name
@@ -472,16 +472,11 @@ This assignment helped me get more comfortable working in C and understanding ho
 
 ## References
 
-- [Stack Overflow](https://stackoverflow.com): For troubleshooting and understanding common C programming issues.
+- [Stack Overflow](https://stackoverflow.com): 
+- Used to better understand string handling in C and file input functions like fgets() and fopen().
 - Course materials: Lecture slides and notes from the SP26 course.
 - [GNU Make Documentation](https://www.gnu.org/software/make/manual/make.html): For understanding Makefile syntax and usage.
-- Stack Overflow (https://stackoverflow.com)
-- Used to better understand string handling in C and file input functions like fgets() and fopen().
-- Course lecture slides and assignment instructions (SP26).
-- GNU Make Documentation (https://www.gnu.org/software/make/manual/make.html) 
-- For reviewing Makefile structure and build commands.
-
-AI assistant (ChatGPT) — Used to clarify concepts related to string manipulation, input handling, and improving documentation wording.
+- AI assistant (ChatGPT) — Used to clarify concepts related to string manipulation, input handling, and improving documentation wording.
 
 ## Acknowledgements
 

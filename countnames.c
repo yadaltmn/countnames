@@ -1,20 +1,23 @@
 // filepath: /countnames/src/countnames.c
 
+/*
+ * countnames.c
+ * Reads names from a file (or stdin) and prints how many times each name appears.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #define MAX_NAMES 100 // 100 distinct names
 #define MAX_NAME_LENGTH 31
-#define Line_BUFFER_SIZE 256
+#define LINE_BUFFER_SIZE 256
 
 
 int main(int argc, char *argv[])
 {
-    /*This will be able to open names.txt and read the 
-    names in it, but it doesn't do anything with them yet.*/
+    //If a file name is provvided, attempt to open it 
     FILE *fp = NULL;
-    //This is setup if the file name can not be opened
     if (argc == 2)
     {
         fp = fopen(argv[1], "r");
@@ -34,7 +37,7 @@ int main(int argc, char *argv[])
     
     char names[MAX_NAMES][MAX_NAME_LENGTH];
     int counts[MAX_NAMES];
-    int lengthCOunt = 0;
+    int lengthCount = 0;
 
     for (int i = 0; i < MAX_NAMES; i++)
     {
@@ -42,10 +45,10 @@ int main(int argc, char *argv[])
         names[i][0] = '\0';
     }
 
-    char buffer[Line_BUFFER_SIZE];
+    char buffer[LINE_BUFFER_SIZE];
     int lineNum = 0;
 
-    while (fgets(buffer, Line_BUFFER_SIZE, fp) != NULL)
+    while (fgets(buffer, LINE_BUFFER_SIZE, fp) != NULL)
     {
         lineNum++;
         // Remove newline character if present
@@ -59,7 +62,7 @@ int main(int argc, char *argv[])
 
         // Check if the name is already in the table
         int found = 0;
-        for (int i = 0; i < lengthCOunt; i++)
+        for (int i = 0; i < lengthCount; i++)
         {
             if (strcmp(names[i], buffer) == 0)
             {
@@ -70,12 +73,13 @@ int main(int argc, char *argv[])
         }
 
         // If not found, add it to the table
-        if (!found && lengthCOunt < MAX_NAMES)
+        if (!found && lengthCount < MAX_NAMES)
         {
-            strncpy(names[lengthCOunt], buffer, MAX_NAME_LENGTH - 1);
-            names[lengthCOunt][MAX_NAME_LENGTH - 1] = '\0'; // Ensure null-termination
-            counts[lengthCOunt] = 1;
-            lengthCOunt++;
+            strncpy(names[lengthCount], buffer, MAX_NAME_LENGTH - 1);
+            names[lengthCount][MAX_NAME_LENGTH - 1] = '\0'; // Ensure null-termination
+            counts[lengthCount] = 1;
+            lengthCount++;
+            //increment the count of distinct names
         }
     }
     // Close the file after reading
@@ -84,8 +88,9 @@ int main(int argc, char *argv[])
         fclose(fp);
     }
 
-    //print the name counts
-    for (int i = 0; i < lengthCOunt; i++)
+    
+    //This will print the final results of names and their counts
+    for (int i = 0; i < lengthCount; i++)
     {
         printf("%s: %d\n", names[i], counts[i]);
     }

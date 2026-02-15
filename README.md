@@ -28,7 +28,7 @@ gcc -o countnames countnames.c -Wall -Werror
 ./countnames test/names.txt
 ./countnames test/names1.txt
 ./countnames test/names2.txt
-./countnames test/names3.txt
+./countnames test/namesB.txt
 ./countnames test/names_long.txt
 ./countnames test/names_long_redundant.txt
 ./countnames test/names_long_redundant1.txt
@@ -59,7 +59,7 @@ Tom Wu: 3
 Jenn Xu: 2
 Tom Wu: 1
 
-./countnames test/names3.txt
+./countnames test/namesB.txt
 
 Warning: Line 2 is empty.
 Warning: Line 5 is empty.
@@ -452,23 +452,26 @@ MENDOZA JESSE: 1
 
 ## Situations / Edge Cases:
 
-names.txt - Tests empty lines + duplicates + names with space
-names1.txt - Tests empty line + 1 repeated name
-names2.txt - Tests duplicates
-names3.txt - Tests empty lines + duplicates
-names_long.txt - Tests many unique names + lines with one space
-names_long_redundant.txt - Tests many unique names with some duplicates
-names_long_redundant1.txt - Tests many unique names with a few empty lines 
-names_long_redundant2.txt - Tests many unique names
-names_long_redundant3.txt - Tests many unique names with some duplicates
-testCase1.txt - Tests spaces in between letters
-testCase2.txt - Tests empty lines + leading space + empty line with a space + case sensitivity
-testCase3.txt - Tests empty lines + same first name + leading space + duplicate
+- names.txt - Tests empty lines + duplicates + names with space
+- names1.txt - Tests empty line + 1 repeated name
+- names2.txt - Tests duplicates
+- namesB.txt - Tests empty lines + duplicates
+- names_long.txt - Tests many unique names + lines with one space
+- names_long_redundant.txt - Tests many unique names with some duplicates
+- names_long_redundant1.txt - Tests many unique names with a few empty lines 
+- names_long_redundant2.txt - Tests many unique names
+- names_long_redundant3.txt - Tests many unique names with some duplicates
+- testCase1.txt - Tests spaces in between letters
+- testCase2.txt - Tests empty lines + leading space + empty line with a space + case sensitivity
+- testCase3.txt - Tests empty lines + same first name + leading space + duplicate
 
 ## Lessons Learned
 
 Jada Lien Nguyen-
 This assignment helped me get more comfortable working in C and understanding how programs are structured from start to finish. I practiced handling file input, working with strings in C (which is very different from higher-level languages), and managing memory carefully. It also reinforced how important it is to check for errors, especially when opening files. Overall, it helped me better understand how UNIX-style utilities are built and how small design decisions affect program behavior.
+
+Jesse Mendoza - 
+This assignment helped me have a better understanding of C. Understanding how to open and process a txt file was also something I learned, as well as passing a file through the command line. My familiarity with Linux has helped me to have a better understanding of how to manage the filesystems and create new txt files for our 3 new test cases. I also learned how to troubleshoot my program in C when encountering any error / compile issues. Overall, this assignment helped me in building a better foundation.
 
 ## References
 

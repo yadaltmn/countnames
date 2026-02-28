@@ -1,21 +1,17 @@
 
 /**
- * Description: This program creates a utility called "countnames" that reads
- * names from a file or from standard input, one name per line. It counts how
- * many times each name appears (up to 100 distinct names) and prints the
- * results as "name: count". Empty lines are skipped and generate a warning
- * message to stderr.
+ * Description: This program ....
  * 
  * Author names: Jada-Lien Nguyen and Jesse Mendoza 
  * Author emails: 
  * jada-lien.nguyen@sjsu.edu 
  * jesse.mendoza@sjsu.edu 
- * Last modified date: 2/15/2026
- * Creation date: 2/12/2026
+ * Last modified date: 2/27/2026
+ * Creation date: 2/27/2026
  **/
 
  ## Link to Output of PDF:
- https://docs.google.com/document/d/1TrVFLb-xbuPsFWEa797jpwT3WohfEI4ySgFXho5NbV4/edit?usp=sharing
+
 
 ## How to Compile Code:
 
